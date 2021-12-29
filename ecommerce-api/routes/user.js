@@ -1,22 +1,29 @@
+const { verifyToken, verifyTokenAndAuthorization } = require('../middleware/verifyToken');
 const router = require('express').Router();
 const User = require('../models/User');
 
 // REGISTER
-router.post('/register', async (req, res) => {
-    const newUser = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
-    });
-
+router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
+    if (req.body.password) {
+        req.body.password = CryptoJS.AES.encrypt(
+            req.body.password,
+            process.env.PASS_SECRET
+        ).toString();
+    }
     try {
-        const savedUser = await newUser.save();
-        res.status(201).json(savedUser);
-        // console.log(savedUser);
+        const updatedUser = await User.findByIdAndUpdate(
+            req.params.id,
+            {
+                $set: req.body,
+            },
+            { new: true }
+        );
+        res.status(200).json(updatedUser);
     } catch(err) {
         res.status(500).json(err);
-        // console.log(err);
     }
+
+    
 });
 
 module.exports = router;
