@@ -12,6 +12,7 @@ router.post('/register', async (req, res) => {
             req.body.password,
             process.env.PASS_SECRET
         ).toString(),
+        isAdmin: req.body.isAdmin
     });
 
     try {
