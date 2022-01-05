@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { Badge } from "@material-ui/core";
 
 const Container = styled.div`
   height: 60px;
@@ -13,14 +15,47 @@ const Wrapper = styled.div`
 
 const Left = styled.div`
   flex: 1;
+  display: flex;
+  align-items: center;
+`;
+
+const Language = styled.span`
+  font-size: 14px;
+  cursor: pointer;
+`;
+
+const SearchContainer = styled.div`
+  border: 0.5px solid lightgray;
+  display: flex;
+  //   align-items: center;
+  margin-left: 25px;
+  padding: 5px;
+`;
+
+const Input = styled.input`
+  border: none;
 `;
 
 const Center = styled.div`
   flex: 1;
 `;
 
+const Logo = styled.h1`
+  flex: 1;
+  text-align: center;
+`;
+
 const Right = styled.div`
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const MenuItem = styled.div`
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
 `;
 
 const Navbar = () => {
@@ -28,18 +63,24 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum
+          <Language>EN</Language>
+          <SearchContainer>
+            <Input></Input>
+            <Search></Search>
+          </SearchContainer>
         </Left>
-        <Center>Center</Center>
-        <Right>Right</Right>
+        <Center>
+          {" "}
+          <Logo>LAMA.</Logo>{" "}
+        </Center>
+        <Right>
+          <MenuItem>REGISTER</MenuItem>
+          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>
+            <Badge badgeContent={4} color="secondary"></Badge>
+            <ShoppingCartOutlined />
+          </MenuItem>
+        </Right>
       </Wrapper>
     </Container>
   );
