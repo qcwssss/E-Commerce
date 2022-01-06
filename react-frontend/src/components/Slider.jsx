@@ -1,5 +1,6 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import styled from "styled-components";
+import { sliderItems } from "../data";
 
 const Container = styled.div`
   width: 100%;
@@ -25,11 +26,13 @@ const Arrow = styled.div`
   right: ${(props) => props.direction === "right" && "10px"};
   cursor: pointer;
   opacity: 0.5;
+  z-index: 2;
 `;
 
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
+  transform: translateX(0vw);
 `;
 
 const Slide = styled.div`
@@ -37,7 +40,7 @@ const Slide = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #${(props) => props.bg};
+  background-color: ${(props) => props.bg};
 `;
 
 const ImgContainer = styled.div`
@@ -73,9 +76,11 @@ const Button = styled.button`
 `;
 
 const Slider = () => {
+  const handleClick = (direction) => {};
+
   return (
     <Container>
-      <Arrow direction="left">
+      <Arrow direction="left" onClick={() => handleClick("right")}>
         <ArrowLeftOutlined />
       </Arrow>
       <Wrapper>
@@ -91,8 +96,20 @@ const Slider = () => {
             <Button>SHOW NOW</Button>
           </InfoContainer>
         </Slide>
+        <Slide bg="yellow">
+          <ImgContainer>
+            <Image src="https://picsum.photos/200/300" />
+          </ImgContainer>
+          <InfoContainer>
+            <Title>WINTER SALE</Title>
+            <Desc>
+              Don't compromise on style! Get flat 30% off for new arrivals
+            </Desc>
+            <Button>SHOW NOW</Button>
+          </InfoContainer>
+        </Slide>
       </Wrapper>
-      <Arrow direction="right">
+      <Arrow direction="right" onClick={() => handleClick("right")}>
         <ArrowRightOutlined />
       </Arrow>
     </Container>
