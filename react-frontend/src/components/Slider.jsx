@@ -6,6 +6,7 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   position: relative;
+  overflow: hidden;
 `;
 
 const Arrow = styled.div`
@@ -36,6 +37,7 @@ const Slide = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  background-color: #${(props) => props.bg};
 `;
 
 const ImgContainer = styled.div`
@@ -52,6 +54,24 @@ const InfoContainer = styled.div`
   padding: 50px;
 `;
 
+const Title = styled.h1`
+  font-size: 70px;
+`;
+
+const Desc = styled.p`
+  margin: 50px 0px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 3px;
+`;
+
+const Button = styled.button`
+  padding: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
 const Slider = () => {
   return (
     <Container>
@@ -59,11 +79,17 @@ const Slider = () => {
         <ArrowLeftOutlined />
       </Arrow>
       <Wrapper>
-        <Slide>
+        <Slide bg="f5fafd">
           <ImgContainer>
             <Image src="https://picsum.photos/200/300" />
           </ImgContainer>
-          <InfoContainer></InfoContainer>
+          <InfoContainer>
+            <Title>SUMMER SALE</Title>
+            <Desc>
+              Don't compromise on style! Get flat 30% off for new arrivals
+            </Desc>
+            <Button>SHOW NOW</Button>
+          </InfoContainer>
         </Slide>
       </Wrapper>
       <Arrow direction="right">
