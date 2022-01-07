@@ -71,7 +71,7 @@ const Navbar = () => {
         </Left>
         <Center>
           {" "}
-          <Logo>LAMA.</Logo>{" "}
+          <Logo>XMAS.</Logo>{" "}
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
