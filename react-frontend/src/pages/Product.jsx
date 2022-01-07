@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
-import Annoucement from "../components/Announcement";
 import { Remove, Add } from "@material-ui/icons";
+import Footer from "../components/Footer";
+import Newsletter from "../components/Newsletter";
+import Announcement from "../components/Announcement";
 
 const Container = styled.div``;
 
@@ -15,7 +17,7 @@ const ImgContainer = styled.div`
   flex: 1;
 `;
 
-const Image = styled.div`
+const Image = styled.img`
   width: 100%;
   height: 90vh;
   object-fit: cover;
@@ -107,14 +109,14 @@ const Button = styled.button`
   }
 `;
 
-export const Product = () => {
+const Product = () => {
   return (
     <Container>
       <Navbar />
-      <Annoucement />
+      <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src="https://images.pexels.com/photos/9950591/pexels-photo-9950591.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
         </ImgContainer>
         <InfoContainer>
           <Title>Denim Jumpsuit</Title>
@@ -154,6 +156,10 @@ export const Product = () => {
           </AddContainer>
         </InfoContainer>
       </Wrapper>
+      <Newsletter />
+      <Footer />
     </Container>
   );
 };
+
+export default Product;
