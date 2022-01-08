@@ -23,16 +23,31 @@ const ProductsGroup = ({ cat, filters, sort }) => {
             ? `http://localhost:5000/api/products?category=${cat}`
             : "http://localhost:5000/api/products"
         );
-        console.log(res);
-      } catch (err) {}
+        setProducts.apply(res.data);
+      } catch (err) {
+        console.log(err);
+      }
     };
     getProducts();
   }, [cat]);
 
-  console.log(cat, filters, sort);
+  console.log(products);
+
+  useEffect(() => {
+    cat &&
+      setfilteredProducts(
+        products.filter((item) =>
+          Object.entries(filters).every(([key, value]) =>
+            item[key].includes(value)
+          )
+        )
+      );
+  }, [products, cat, filters]);
+
+  // console.log(cat, filters, sort);
   return (
     <Container>
-      {popularProducts.map((item) => (
+      {filteredProducts.map((item) => (
         <Product item={item} key={item.id} />
       ))}
     </Container>
