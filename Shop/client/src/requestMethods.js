@@ -1,6 +1,4 @@
 import axios from "axios";
-const dotenv = require("dotenv");
-dotenv.config();
 
 const BASE_URL = "http://localhost:5000/api";
 
