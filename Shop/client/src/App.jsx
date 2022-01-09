@@ -6,15 +6,10 @@ import Product from "./pages/Product";
 import Register from "./pages/Register";
 
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  matchRoutes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
-  const user = true;
+  // const user = true;
   return (
     <Router>
       <Routes>
