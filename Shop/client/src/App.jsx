@@ -6,11 +6,16 @@ import Product from "./pages/Product";
 import Register from "./pages/Register";
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Success from "./pages/Success";
 
 const App = () => {
-  // const user = true;
+  // const user = false;
   return (
     <Router>
       <Routes>
@@ -19,6 +24,8 @@ const App = () => {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );

@@ -7,7 +7,6 @@ const stripe = require("stripe")(KEY);
 
 router.post("/payment", (req, res) => {
   //   console.log(KEY);
-  //   console.log(process.env.node_env);
 
   stripe.charges.create(
     {
